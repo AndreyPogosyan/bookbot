@@ -12,14 +12,16 @@ def read_book():
 def character_count():
     characters = list(open("books/frankenstein.txt", "r").read())
     lower_case = []
+    count = 0
 
     for character in characters:
         lower_case.append(character.lower())
-    
-    for i in range(0, len(lower_case)):
-        
 
-    return lower_case 
+    for i in range(0, len(lower_case)):
+        if lower_case[i]:
+            count += lower_case[i].count(lower_case[i])
+
+    return count
 
 
 def main():
