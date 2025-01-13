@@ -1,5 +1,4 @@
 
-# Read book and and count words
 def read_book():
     word_cout = 0
     read_book = open("books/frankenstein.txt", "r")
@@ -11,20 +10,28 @@ def read_book():
 
 def character_count():
     characters = list(open("books/frankenstein.txt", "r").read())
-    lower_case = []
-    count = 0
+    lower_case = [character.lower() for character in characters if character.isalpha()]
+    count = {}
 
-    for character in characters:
-        lower_case.append(character.lower())
 
-    for i in range(0, len(lower_case)):
-        if lower_case[i]:
-            count += lower_case[i].count(lower_case[i])
+    for character in lower_case:
+        if character in count:
+            count[character] += 1
+        else:
+            count[character] = 1
 
     return count
+    # for key, character in count.items():
+    #     print(f"The '{key}' character was found '{character}' times")
+        
 
+    # return count
+    # for character in characters:
+    #     if character.isalpha():
+    #       lower_case.append(character.lower())
 
 def main():
-    return character_count()
+    # read_book()
+    character_count()
 
 print(main())
