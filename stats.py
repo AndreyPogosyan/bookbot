@@ -1,4 +1,6 @@
-filepath = open("books/frankenstein.txt")
+import sys
+
+filepath = open(sys.argv[1])
 
 
 def get_book_text(filepath):
@@ -7,7 +9,7 @@ def get_book_text(filepath):
 
 
 def get_num_words():
-    file_contents = open("books/frankenstein.txt")
+    file_contents = open(sys.argv[1])
     content = get_book_text(file_contents)
     split_words = content.split()
     length = len(split_words)
