@@ -1,13 +1,20 @@
-from stats import get_num_words, sorted_list
 import sys
+from stats import sorted_list
 
 
-if len(sys.argv) < 2:
-    print("Usage: python3 main.py <path_to_book>")
-    exit(1)
+def get_book_text(filepath):
+    content = filepath.read()
+    return content
 
 
-# Main function to call the get_book_text() function
+def get_num_words():
+    file_contents = open(sys.argv[1])
+    content = get_book_text(file_contents)
+    split_words = content.split()
+    length = len(split_words)
+    return length
+
+
 def main():
     total_word_count = get_num_words()
     print("============ BOOKBOT ============")
@@ -18,4 +25,8 @@ def main():
     return sorted_list()
 
 
-main()
+if len(sys.argv) < 2:
+    print("Usage: python3 main.py <path_to_book>")
+    sys.exit(1)
+else:
+    main()

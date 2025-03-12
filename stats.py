@@ -1,23 +1,13 @@
 import sys
 
-filepath = open(sys.argv[1])
-
 
 def get_book_text(filepath):
     content = filepath.read()
     return content
 
 
-def get_num_words():
-    file_contents = open(sys.argv[1])
-    content = get_book_text(file_contents)
-    split_words = content.split()
-    length = len(split_words)
-    return length
-
-
 def character_count():
-    book_text = get_book_text(filepath).lower()
+    book_text = get_book_text(open(sys.argv[1])).lower()
     characters = list(book_text)
     new_dict = {}
     for character in characters:
